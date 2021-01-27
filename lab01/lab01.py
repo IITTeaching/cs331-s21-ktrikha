@@ -66,7 +66,7 @@ def integer_right_triangles(p):
                  for b in range (1, p)
                  for c in range (1, p)
                  if (a**2 + b**2 == c**2) and (a + b + c == p) and (a<=b) and (b<c)]
-    return l
+    return len(l)
 
 def test3():
     tc = unittest.TestCase()

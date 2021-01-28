@@ -22,7 +22,11 @@ def captured_output():
 
 # implement this function
 def is_perfect(n):
-    pass
+    sum = 0
+    for x in range(1, n):
+        if n % x == 0:
+            sum += x
+    return sum == n
 
 # (3 points)
 def test1():
@@ -40,7 +44,12 @@ def test1():
 
 # implement this function
 def multiples_of_3_and_5(n):
-    pass
+    sum=0
+    for x in range(1,n):
+        if x%3==0 or x%5==0:
+            sum+=x
+        
+    return sum
 
 # (3 points)
 def test2():
@@ -53,7 +62,11 @@ def test2():
 # EXERCISE 3
 #################################################################################
 def integer_right_triangles(p):
-    pass
+    l = [(a,b,c) for a in range (1, p)
+                 for b in range (1, p)
+                 for c in range (1, p)
+                 if (a**2 + b**2 == c**2) and (a + b + c == p) and (a<=b) and (b<c)]
+    return len(l)
 
 def test3():
     tc = unittest.TestCase()
@@ -67,7 +80,23 @@ def test3():
 
 # implement this function
 def gen_pattern(chars):
-    pass
+    length= len(chars)
+    numLetters=(length*2)-1
+    numDots= numLetters-1
+    for x in range(1,length+1):
+      last= (chars[length-x:])
+      front =(chars[length-x+1:])
+      front = front[::-1]
+      word = '.'.join(front+last)
+      center= word.center(numLetters+numDots, '.')
+      print(center)
+    for y in range(length-1,0,-1):
+      last= (chars[length-y:])
+      front =(chars[length-y+1:])
+      front = front[::-1]
+      word = '.'.join(front+last)
+      center= word.center(numLetters+numDots, '.')
+      print(center)
 
 def test4():
     tc = unittest.TestCase()
